@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Stonks Or Stinks</string>
+    <string name="show_cards">Show Cards</string>
+    <string name="show_logs">Show Logs</string>
+    <string name="submit">Submit</string>
+    <string name="your_actions">Your Actions</string>
+    <string name="infosys">Infosys</string>
+    <string name="reliance">Reliance</string>
+    <string name="ongc">ONGC</string>
+    <string name="tata">TATA</string>
+    <string name="hdfc">HDFC</string>
+    <string name="wockhardt">Wockhardt</string>
+    <string name="ready">Ready</string>
+    <string name="waiting_for_other_players">Waiting for other players</string>
+    <string name="winner">Winner!</string>
+    <string name="start_new_game">Start New Game</string>
+    <string name="cash">Cash:</string>
+    <string name="enter_room_id">Enter Room ID</string>
+    <string name="join">Join</string>
+    <string name="create">Create</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="single_player">Single Player</string>
+    <string name="multiplayer">Multiplayer</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="next">Next</string>
+    <string name="how_to_play">How To Play</string>
+    <string name="return_to_main_menu">Return to main menu</string>
+</resources>

@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    tools:context=".GamePage">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4">
+
+        <TextView
+            android:id="@+id/round_number"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textSize="30sp"
+            android:textColor="@android:color/holo_green_light"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.5" />
+
+        <TextView
+            android:id="@+id/round_timer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical|end"
+            android:text=""
+            android:textSize="30sp"
+            android:textColor="@android:color/holo_green_light"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintStart_toEndOf="@id/round_number"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.1">
+
+        <ViewFlipper
+            android:id="@+id/view_flipper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#3A3B3C">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/wock"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@string/wockhardt"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33" />
+
+                <TextView
+                    android:id="@+id/hdfc"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@string/hdfc"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.3"
+                    app:layout_constraintLeft_toRightOf="@id/wock"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.34" />
+
+                <TextView
+                    android:id="@+id/tata"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@string/tata"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.3"
+                    app:layout_constraintLeft_toRightOf="@id/hdfc"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33" />
+
+                <TextView
+                    android:id="@+id/wock_rate"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/wock"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33" />
+
+                <TextView
+                    android:id="@+id/hdfc_rate"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintStart_toEndOf="@+id/wock_rate"
+                    app:layout_constraintTop_toBottomOf="@id/hdfc"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.34" />
+
+                <TextView
+                    android:id="@+id/tata_rate"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintStart_toEndOf="@id/hdfc_rate"
+                    app:layout_constraintTop_toBottomOf="@id/tata"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33" />
+
+                <TextView
+                    android:id="@+id/wock_hold"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/wock_rate"/>
+
+                <TextView
+                    android:id="@+id/hdfc_hold"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.34"
+                    app:layout_constraintStart_toEndOf="@id/wock_hold"
+                    app:layout_constraintTop_toBottomOf="@id/hdfc_rate"/>
+
+                <TextView
+                    android:id="@+id/tata_hold"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33"
+                    app:layout_constraintStart_toEndOf="@id/hdfc_hold"
+                    app:layout_constraintTop_toBottomOf="@id/tata_rate"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.16"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.15"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tata_hold"
+                    android:src="@drawable/ic_baseline_chevron_right_24"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/ongc"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@string/ongc"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.3"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33" />
+
+                <TextView
+                    android:id="@+id/reliance"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@string/reliance"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="20sp"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.3"
+                    app:layout_constraintLeft_toRightOf="@id/ongc"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.34" />
+
+                <TextView
+                    android:id="@+id/infosys"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:text="@string/infosys"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.3"
+                    app:layout_constraintLeft_toRightOf="@id/reliance"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33" />
+
+                <TextView
+                    android:id="@+id/ongc_rate"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ongc"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33" />
+
+                <TextView
+                    android:id="@+id/reliance_rate"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintStart_toEndOf="@+id/ongc_rate"
+                    app:layout_constraintTop_toBottomOf="@id/reliance"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.34" />
+
+                <TextView
+                    android:id="@+id/infosys_rate"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintStart_toEndOf="@id/reliance_rate"
+                    app:layout_constraintTop_toBottomOf="@id/infosys"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33" />
+
+                <TextView
+                    android:id="@+id/ongc_hold"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ongc_rate"/>
+
+                <TextView
+                    android:id="@+id/rel_hold"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.34"
+                    app:layout_constraintStart_toEndOf="@id/ongc_hold"
+                    app:layout_constraintTop_toBottomOf="@id/reliance_rate"/>
+
+                <TextView
+                    android:id="@+id/info_hold"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/holo_green_light"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.27"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.33"
+                    app:layout_constraintStart_toEndOf="@id/rel_hold"
+                    app:layout_constraintTop_toBottomOf="@id/infosys_rate"/>
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintHeight_default="percent"
+                    app:layout_constraintHeight_percent="0.16"
+                    app:layout_constraintWidth_default="percent"
+                    app:layout_constraintWidth_percent="0.15"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ongc_hold"
+                    android:src="@drawable/ic_baseline_chevron_left_24"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ViewFlipper>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:textSize="25dp"
+            android:textColor="@android:color/holo_green_light"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/cash"/>
+
+        <TextView
+            android:id="@+id/cash"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:textColor="@android:color/holo_green_light"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"
+        android:gravity="center"
+        android:text="@string/your_actions"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="17sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Spinner
+            android:id="@+id/action_one"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <Spinner
+            android:id="@+id/company_one"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_one"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <Spinner
+            android:id="@+id/quantity_one"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toEndOf="@id/action_one"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+
+        <TextView
+            android:id="@+id/total_one"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="17sp"
+            android:textColor="@android:color/holo_green_light"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toEndOf="@id/company_one"
+            app:layout_constraintTop_toBottomOf="@id/quantity_one"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <Button
+            android:id="@+id/submit_one"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/submit"
+            app:layout_constraintBaseline_toBottomOf="@id/action_one"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintStart_toEndOf="@id/total_one"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.34" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/white"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Spinner
+            android:id="@+id/action_two"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <Spinner
+            android:id="@+id/company_two"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_two"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <Spinner
+            android:id="@+id/quantity_two"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toEndOf="@id/action_two"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <TextView
+            android:id="@+id/total_two"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="17sp"
+            android:textColor="@android:color/holo_green_light"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toEndOf="@id/company_two"
+            app:layout_constraintTop_toBottomOf="@id/quantity_two"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <Button
+            android:id="@+id/submit_two"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/submit"
+            app:layout_constraintBaseline_toBottomOf="@id/action_two"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintStart_toEndOf="@id/total_two"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.34" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/white"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Spinner
+            android:id="@+id/action_three"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <Spinner
+            android:id="@+id/company_three"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_three"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <Spinner
+            android:id="@+id/quantity_three"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toEndOf="@id/action_three"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <TextView
+            android:id="@+id/total_three"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="17sp"
+            android:textColor="@android:color/holo_green_light"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toEndOf="@id/company_three"
+            app:layout_constraintTop_toBottomOf="@id/quantity_three"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.33" />
+
+        <Button
+            android:id="@+id/submit_three"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/submit"
+            app:layout_constraintBaseline_toBottomOf="@id/action_three"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintStart_toEndOf="@id/total_three"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.34" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5">
+
+        <Button
+            android:id="@+id/show_cards"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="50dp"
+            android:text="@string/show_cards"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.3"
+            android:enabled="false"/>
+
+        <Button
+            android:id="@+id/show_logs"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="50dp"
+            android:text="@string/show_logs"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
