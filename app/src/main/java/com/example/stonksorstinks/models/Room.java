@@ -15,12 +15,12 @@ public class Room {
 
     }
 
-    public Room(int roomID, Map<String, Player> players, Boolean isFull, Boolean isLocked) {
+    public Room(int roomID, Map<String, Player> players, int maxPlayers, Boolean isLocked) {
         this.roomID = roomID;
         this.players = players;
         this.round = 1;
-        this.maxPlayers = 4;
-        this.isFull = isFull;
+        this.maxPlayers = maxPlayers;
+        this.isFull = false;
         this.isLocked = isLocked;
         this.noOfPlayers = 1;
         this.wockRate = 20;

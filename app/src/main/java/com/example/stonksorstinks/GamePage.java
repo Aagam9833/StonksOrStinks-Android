@@ -3,12 +3,10 @@ package com.example.stonksorstinks;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.example.stonksorstinks.models.BottomModalSheet;
+import com.example.stonksorstinks.Utils.BottomModalSheet;
 import com.example.stonksorstinks.models.Cards;
 import com.example.stonksorstinks.models.Player;
 import com.google.android.gms.tasks.OnSuccessListener;

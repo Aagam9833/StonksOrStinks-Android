@@ -25,4 +25,9 @@
     <string name="next">Next</string>
     <string name="how_to_play">How To Play</string>
     <string name="return_to_main_menu">Return to main menu</string>
+    <string name="create_room">Create Room</string>
+    <string name="lock_room">Lock Room?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="max_players">Max Players</string>
 </resources>

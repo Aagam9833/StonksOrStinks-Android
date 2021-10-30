@@ -19,10 +19,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class WaitingLobby extends AppCompatActivity {
 
-    TextView joinedPlayersTextView,sharingID;
+    TextView joinedPlayersTextView, sharingID;
     DatabaseReference databaseReference;
     ValueEventListener valueEventListener;
     String roomID;
+    int maxPlayers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +39,24 @@ public class WaitingLobby extends AppCompatActivity {
         valueEventListener = databaseReference.child(roomID).child("noOfPlayers").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.getValue().toString().equals("4")){
+                if (snapshot.getValue().toString().equals(String.valueOf(maxPlayers))) {
                     databaseReference.child(roomID).child("full").setValue(true);
                     databaseReference.child(roomID).child("locked").setValue(true);
                     databaseReference.child(roomID).removeEventListener(valueEventListener);
-                    Intent newIntent = new Intent(WaitingLobby.this,GamePage.class);
-                    newIntent.putExtra("ROOMID",roomID);
-                    newIntent.putExtra("USERNAME",username);
+                    Intent newIntent = new Intent(WaitingLobby.this, GamePage.class);
+                    newIntent.putExtra("ROOMID", roomID);
+                    newIntent.putExtra("USERNAME", username);
                     startActivity(newIntent);
                     finish();
-                }else{
-                    sharingID.setText("Share Room ID with friends: " + roomID);
-                    joinedPlayersTextView.setText(snapshot.getValue().toString() + "/4");
+                } else {
+                    databaseReference.child(roomID).child("maxPlayers").get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+                        @Override
+                        public void onSuccess(DataSnapshot dataSnapshot) {
+                            maxPlayers = Integer.parseInt(dataSnapshot.getValue().toString());
+                            sharingID.setText("Share Room ID with friends: " + roomID);
+                            joinedPlayersTextView.setText(snapshot.getValue().toString() + "/" + String.valueOf(maxPlayers));
+                        }
+                    });
                 }
             }
 
