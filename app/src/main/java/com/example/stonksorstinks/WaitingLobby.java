@@ -24,6 +24,7 @@ public class WaitingLobby extends AppCompatActivity {
     ValueEventListener valueEventListener;
     String roomID;
     int maxPlayers;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +32,22 @@ public class WaitingLobby extends AppCompatActivity {
         setContentView(R.layout.activity_waiting_lobby);
         Intent intent = getIntent();
         roomID = intent.getStringExtra("ROOMID");
-        String username = intent.getStringExtra("USERNAME");
+        username = intent.getStringExtra("USERNAME");
         joinedPlayersTextView = findViewById(R.id.players_joined);
         sharingID = findViewById(R.id.room_id_share);
         databaseReference = FirebaseDatabase.getInstance().getReference("RoomID");
 
+        databaseReference.child(roomID).child("maxPlayers").get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+            @Override
+            public void onSuccess(DataSnapshot dataSnapshot) {
+                maxPlayers = Integer.parseInt(dataSnapshot.getValue().toString());
+                postMaxPlayers();
+            }
+        });
+
+    }
+
+    private void postMaxPlayers() {
         valueEventListener = databaseReference.child(roomID).child("noOfPlayers").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -65,7 +77,6 @@ public class WaitingLobby extends AppCompatActivity {
 
             }
         });
-
     }
 
     @Override
