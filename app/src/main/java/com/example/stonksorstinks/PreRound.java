@@ -71,8 +71,6 @@ public class PreRound extends AppCompatActivity {
         preRoundLoading = findViewById(R.id.preround_loading);
         preRoundLayout = findViewById(R.id.preround_layout);
 
-
-
         barChart = findViewById(R.id.bar_chart);
         wockRateView = findViewById(R.id.wock_rate_pre_round);
         hdfcRateView = findViewById(R.id.hdfc_rate_pre_round);
@@ -258,6 +256,7 @@ public class PreRound extends AppCompatActivity {
 
                 readyButton.setOnClickListener(view -> {
                     databaseReference.child(roomID).child("players").child(username).child("ready").setValue(true);
+                    databaseReference.child(roomID).child("playerLogs").setValue("");
                     readyButton.setVisibility(View.GONE);
                     nextRoundLayout.setVisibility(View.VISIBLE);
                 });

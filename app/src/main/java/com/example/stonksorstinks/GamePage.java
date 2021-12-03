@@ -1,5 +1,6 @@
 package com.example.stonksorstinks;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,12 +20,15 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.example.stonksorstinks.Utils.BottomModalSheet;
+import com.example.stonksorstinks.Utils.BottomModalSheetLogs;
 import com.example.stonksorstinks.models.Cards;
 import com.example.stonksorstinks.models.Player;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -41,7 +46,8 @@ public class GamePage extends AppCompatActivity {
             wockHold, hdfcHold, tataHold, ongcHold, relHold, infoHold, cash;
     Button submitOne, submitTwo, submitThree, showCards, showLogs;
 
-    BottomModalSheet cardsDialog, logsDialog;
+    BottomModalSheet cardsDialog;
+    BottomModalSheetLogs logsDialog;
 
     Spinner actionOneSpinner, actionTwoSpinner, actionThreeSpinner, companyOneSpinner, companyTwoSpinner, companyThreeSpinner,
             quantityOne, quantityTwo, quantityThree;
@@ -60,6 +66,8 @@ public class GamePage extends AppCompatActivity {
     Boolean isRetrieved = false;
     private Player finalPlayer;
     ArrayList<Cards> arrayList;
+
+    String logs = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -353,6 +361,7 @@ public class GamePage extends AppCompatActivity {
                             companyOneSpinner.setClickable(false);
                             actionOneSpinner.setClickable(false);
                             buy(company, quantity, balance - total);
+                            databaseReference.child(roomID).child("playerLogs").setValue("Someone bought shares of " + company);
                         }
                     }
                     break;
@@ -370,6 +379,7 @@ public class GamePage extends AppCompatActivity {
                             int finalCash = finalPlayer.getCash() + Integer.parseInt(actionOneTotal.getText().toString());
                             finalPlayer.setCash(finalCash);
                             cash.setText(String.valueOf(finalCash));
+                            databaseReference.child(roomID).child("playerLogs").setValue("Someone sold shares of " + company);
                         }
                     }
                     break;
@@ -407,6 +417,7 @@ public class GamePage extends AppCompatActivity {
                             companyTwoSpinner.setClickable(false);
                             actionTwoSpinner.setClickable(false);
                             buy(company, quantity, balance - total);
+                            databaseReference.child(roomID).child("playerLogs").setValue("Someone bought shares of " + company);
                         }
                     }
                     break;
@@ -424,6 +435,7 @@ public class GamePage extends AppCompatActivity {
                             int finalCash = finalPlayer.getCash() + Integer.parseInt(actionTwoTotal.getText().toString());
                             finalPlayer.setCash(finalCash);
                             cash.setText(String.valueOf(finalCash));
+                            databaseReference.child(roomID).child("playerLogs").setValue("Someone sold shares of " + company);
                         }
                     }
                     break;
@@ -461,6 +473,7 @@ public class GamePage extends AppCompatActivity {
                             companyThreeSpinner.setClickable(false);
                             actionThreeSpinner.setClickable(false);
                             buy(company, quantity, balance - total);
+                            databaseReference.child(roomID).child("playerLogs").setValue("Someone bought shares of " + company);
                         }
                     }
                     break;
@@ -478,6 +491,7 @@ public class GamePage extends AppCompatActivity {
                             int finalCash = finalPlayer.getCash() + Integer.parseInt(actionThreeTotal.getText().toString());
                             finalPlayer.setCash(finalCash);
                             cash.setText(String.valueOf(finalCash));
+                            databaseReference.child(roomID).child("playerLogs").setValue("Someone sold shares of " + company);
                         }
                     }
                     break;
@@ -506,6 +520,25 @@ public class GamePage extends AppCompatActivity {
 
             }
         }.start();
+
+        databaseReference.child(roomID).child("playerLogs").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                logs = logs + "\n" + snapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+        showLogs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logsDialog = new BottomModalSheetLogs(logs);
+                logsDialog.show(getSupportFragmentManager(), "ModalBottomLogs");
+            }
+        });
 
     }
 

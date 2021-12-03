@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Room {
     int roomID, wockRate, hdfcRate, tataRate, ongcRate, relRate, infoRate;
-    ArrayList<String> playerLogs;
+    String playerLogs;
     Map<String, Player> players;
     int round, maxPlayers, noOfPlayers;
     Boolean isFull, isLocked;
@@ -29,8 +29,7 @@ public class Room {
         this.ongcRate = 50;
         this.relRate = 70;
         this.infoRate = 80;
-        this.playerLogs = new ArrayList<>();
-        playerLogs.add("");
+        playerLogs = "";
         this.cards = new ArrayList<>();
     }
 
@@ -138,11 +137,11 @@ public class Room {
         this.infoRate = infoRate;
     }
 
-    public ArrayList<String> getPlayerLogs() {
+    public String getPlayerLogs() {
         return playerLogs;
     }
 
-    public void setPlayerLogs(ArrayList<String> playerLogs) {
+    public void setPlayerLogs(String playerLogs) {
         this.playerLogs = playerLogs;
     }
 
