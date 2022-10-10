@@ -34,7 +34,7 @@
             android:layout_height="0dp"
             android:gravity="center_vertical|end"
             android:text=""
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:textColor="@android:color/holo_green_light"
             app:layout_constraintHeight_default="percent"
             app:layout_constraintHeight_percent="1"
