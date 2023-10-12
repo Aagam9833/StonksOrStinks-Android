@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
-    android:background="#F4A950"
+    android:background="#a0ced9"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="20dp">
@@ -18,10 +18,13 @@
         android:textColor="@color/black"
         android:textColorHint="@color/black" />
 
-    <Button
+    <TextView
         android:id="@+id/join_game_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:background="#fcf5c7"
         android:gravity="center"
         android:text="@string/join"
         android:textColor="@color/black" />
