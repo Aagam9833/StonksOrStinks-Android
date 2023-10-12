@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerHorizontal="true"
-    android:background="#F4A950"
+    android:background="#a0ced9"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -73,11 +73,14 @@
 
     </LinearLayout>
 
-    <Button
+    <TextView
         android:id="@+id/create_room_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp"
+        android:background="#fcf5c7"
         android:text="@string/create_room"
         android:textColor="@color/black" />
 
